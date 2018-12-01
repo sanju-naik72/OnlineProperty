@@ -22,6 +22,8 @@ urlpatterns = [
 
     path('', views.openHomePage),
     path('openHomePage/', views.openHomePage),
-path('openUserPage/',views.openUserLogin),
+    path('openUserPage/',views.openUserLogin),
+    path('openUserRegister/',views.openUserRegister),
+    path('getCityFromState/', views.getCityFromState),
 
 ]

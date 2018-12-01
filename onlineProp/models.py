@@ -33,3 +33,10 @@ class Suggestion(models.Model):
     email = models.EmailField(max_length=50)
     contact_no = models.IntegerField()
     message = models.CharField(max_length=500)
+
+class UserRegister(models.Model):
+    name = models.CharField(max_length=50)
+    contact_no = models.IntegerField()
+    city_name = models.ForeignKey(City, on_delete=models.CASCADE)
+    email_id = models.EmailField(max_length=100, primary_key=True)
+    password = models.CharField(max_length=50)
