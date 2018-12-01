@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+    {% load staticfiles %}
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+body  {
+    background-image: url("https://www.w3schools.com/cssref/tryit.asp?filename=trycss_background-image");
+    background-color: mintcream;
+}
+</style>
+    <title>Title</title>
+</head>
+<body>
+ <table align="center">
+            <tr>
+                <td>
+                    <img src="{% static 'images/5cd7c2c71842327c3b977a9522f23362.png' %} " width="150" height="100">
+                </td>
+                <td>
+                    <font size="6" face="Arial" >
+                        REAL RETAIL ESTATE
+                    </font>
+                </td>
+            </tr>
+            <tr>
+                <th colspan="2">
+                    <marquee>
+                      <font size="3" face="Arial">
+                        REAL ESTATE SERVICES
+                    </font></marquee>
+                </th>
+            </tr>
+        </table>
+<div class="row" style="margin-left: 522px">
+    <div class="col-sm-1" style="background-color:lavender;"><a href="/openHomePage/?type=home">Home</a></div>
+    <div class="col-sm-1" style="background-color:lavenderblush;"><a href="/openUserPage/?type=user">User</a></div>
+    <div class="col-sm-1" style="background-color:lavender;"><a href="/openSalesPage/?type=sales">Sales</a></div>
+    <div class="col-sm-1" style="background-color:lavender;"><a href="/openAboutPage/?type=about">About us</a></div>
+    <div class="col-sm-1" style="background-color:lavender;"><a href="/openAdminPage/?type=admin">Admin</a></div>
+    <div class="col-sm-1" style="background-color:lavender;"><a href="/openReportPage/?type=report">Report</a></div>
+          </div>
+{% if type == "home" %}
+        <table align="center">
+            <tr></tr>
+            <tr></tr>
+            <tr></tr>
+            <tr>
+                <td width="220">
+                    <font size="4" face="Arial Rounded MT Bold">
+                        Real estate is "property consisting of land and the buildings on it, along with its natural resources such as crops, minerals or water; immovable property of this nature; an interest vested in this (also) an item of real property, (more generally) buildings or housing in general. Also: the business of real estate."
+                    </font>
+                </td>
+                <td>
+                    <img src="{% static 'images/american-banking-buy-210617.jpg' %} " width="250" height="275">
+                </td>
+            </tr>
+        </table>
+        {% endif %}
+{% if type == "user" %}
+        <form action="/openUserPage/" method="post">
+            {% csrf_token %}
+        <table align="center" border="0">
+            <tr><th height="50" width="200"> User Login  </th></tr>
+            <tr><th height="50" width="200"> <input type="text" placeholder="Username" required name="d_uname"> </th></tr>
+            <tr><th height="50" width="200"> <input type="password" placeholder="Password" required name="d_pass"> </th></tr>
+            <tr><th height="50" width="200"> <input type="submit" value="Login"> </th></tr>
+            <tr><th>
+                <a href="/openDonorRegister/?type=h_donor_register">
+                    New User Register
+                </a>
+            </th>
+            </tr>
+        </table>
+        </form>
+        {% endif %}
+ {% if type == "h_donor_register" %}
+            <form action="//"   method="post">
+                {% csrf_token %}
+            <table align="center" border="0">
+                <tr>
+                    <th width="250" >
+                        <h3>User Registration</h3>
+                    </th>
+                </tr>
+                <tr><th width="250" ><input type="text" placeholder="Name" required name="d_name"></th></tr>
+
+                <tr><th width="250" ><input type="number" placeholder="Contact No" required name="d_cno"></th> </tr>
+
+                <tr>
+                    <th width="250" >
+                        <form action="//">
+                        {% csrf_token %}
+                        <select name="d_state"  onchange="check()" id="one" >
+                            {% for x in states %}
+                                <option>{{ x }}</option>
+                            {% endfor %}
+                        </select>
+                        </form>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th width="250" >
+                        <select name="d_city">
+
+                        </select>
+                    </th>
+                </tr>
+            </table>
+            </form>
+        {% endif %}
+</body>
+</html>
