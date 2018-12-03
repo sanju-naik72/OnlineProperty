@@ -1,4 +1,4 @@
-"""OnlineProperty URL Configuration
+"""onlineProperty URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/2.1/topics/http/urls/
@@ -15,15 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from onlineProp import views
+
+from appOP import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    path('', views.openHomePage),
-    path('openHomePage/', views.openHomePage),
-    path('openUserPage/',views.openUserLogin),
-    path('openUserRegister/',views.openUserRegister),
-    path('getCityFromState/', views.getCityFromState),
+    path('',views.openHomePage ),
+    path('openHomePage/',views.openHomePage ),
+    path('openUserLogin/',views.openUserLogin),
+    path('openUserRegister/', views.openUserRegister),
 
 ]
