@@ -1,4 +1,8 @@
 from django.shortcuts import render
+
+from django.shortcuts import render
+
+from django.shortcuts import render
 from .models import UserRegister, State , City
 
 
@@ -22,21 +26,31 @@ def openUserRegister(request):
 
 # def getCityFromState(request):
 #     sel_state = request.GET.get("state")
-#     res = State.objects.values('idno').filter(name=sel_state)
-#     idno = 0
+#     res = State.objects.values('id_no').filter(name=sel_state)
+#     id_no = 0
 #     for x in res:
-#         idno = x["idno"]
-#     res1 = City.objects.values('city_name').filter(state_name=idno)
+#         id_no = x["id_no"]
+#     res1 = City.objects.values('c_name').filter(s_name=id_no)
 #     city_names = ["City"]
 #     if not res1:
 #         city_names = ["No City Available"]
 #     else:
 #         for x in res1:
-#             city_names.append(x['city_name'])
+#             city_names.append(x['c_name'])
 #
 #     res2 = State.objects.values('name')
 #     states = ["State"]
 #     for x in res2:
 #         states.append(x["name"])
+#
+#     return render(request, "index.html", {"type": 'h_user_register',"city_names":city_names,"states":sel_state,"key":"one"})
 
-    # return render(request, "index.html", {"type": 'h_User_register',"city_names":city_names,"states":sel_state,"key":"one"})
+def registerUser(request):
+    u_name = request.POST.get('u_name')
+    u_cno = request.POST.get('u_cno')
+    u_email = request.POST.get('u_email')
+    u_pass = request.POST.get('u_pass')
+
+    user = UserRegister(name=u_name,contact_no=u_cno,email_id=u_email,password=u_pass)
+    user.save()
+    return render(request,"index.html",{"type":'h_user_register',"message":"Registered",})

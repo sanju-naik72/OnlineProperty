@@ -1,23 +1,24 @@
 from django.db import models
 
+from django.db import models
 
 class State(models.Model):
-    id_no = models.IntegerField(primary_key=True)
+    idno = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
 
 class City(models.Model):
-    id_no =  models.IntegerField(primary_key=True)
+    idno =  models.IntegerField(primary_key=True)
     s_name = models.ForeignKey(State,on_delete=models.CASCADE)
     c_name = models.CharField(max_length=50)
 
 class Locality(models.Model):
-    id_no = models.IntegerField(primary_key=True)
+    idno = models.IntegerField(primary_key=True)
     c_name = models.ForeignKey(City,on_delete=models.CASCADE)
     loc_name = models.CharField(max_length=50)
     pincode = models.IntegerField()
 
 class Property_name(models.Model):
-    id_no = models.IntegerField(primary_key=True)
+    idno = models.IntegerField(primary_key=True)
     loc_name = models.ForeignKey(Locality,on_delete=models.CASCADE)
 
 class Sales(models.Model):
@@ -37,6 +38,6 @@ class Suggestion(models.Model):
 class UserRegister(models.Model):
     name = models.CharField(max_length=50)
     contact_no = models.IntegerField()
-    city_name = models.ForeignKey(City, on_delete=models.CASCADE)
     email_id = models.EmailField(max_length=100, primary_key=True)
     password = models.CharField(max_length=50)
+

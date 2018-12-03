@@ -224,9 +224,10 @@ form.example::after {
     <div class="collapse navbar-collapse" id="myNavbar" >
       <ul class="nav navbar-nav">
         <li class="active"><a href="/openHomePage/?type=home">Home</a></li>
-        <li ><a href="#">About</a></li>
-        <li><a href="#">Gallery</a></li>
-        <li><a href="#">Contact</a></li>
+        <li ><a href="//">About</a></li>
+        <li><a href="//">Gallery</a></li>
+        <li><a href="//">Contact</a></li>
+        <li><a href="/admin/">Admin</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="/openUserLogin/?type=h_user"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
@@ -240,7 +241,7 @@ form.example::after {
       <table align="center">
 
      <tr><td> <img src="{% static 'images/5cd7c2c71842327c3b977a9522f23362.png' %} "></tr>
-      <tr><td><font face="verdana" color="green" size="8"><strong>98acers.com</strong></font></td></tr>
+      <tr><td><font face="verdana" color="green" size="8"><strong>98acres.com</strong></font></td></tr>
           <tr><td><marquee><font face="verdana" color="#dc143c">It is about the safest investment in the world</font></marquee></td></tr>
 <tr>
     <td>
@@ -288,7 +289,7 @@ form.example::after {
 
 
 {% if type == "h_User_register" %}
-            <form action="/openUserRegister/"   method="post" style="border:1px solid #ccc">
+            <form action="/registerUser/"   method="post" style="border:1px solid #ccc">
                 {% csrf_token %}
   <div class="container">
     <h1>Sign Up</h1>
@@ -320,6 +321,7 @@ form.example::after {
     </div>
   </div>
 </form>
+    {{ message }}
 {% endif %}
 
 
